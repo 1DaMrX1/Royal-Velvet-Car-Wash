@@ -1,0 +1,675 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- ==================== METATAGS OPEN GRAPH (PRÉ-VISUALIZAÇÃO REDES SOCIAIS) ==================== -->
+    <meta property="og:title" content="ROYAL VELVET CAR WASH | 09 Maio 2026">
+    <meta property="og:description" content="Lavagem Profissional · Pequeno Porte 200 MT · Grande Porte 300 MT · 'Se não brilhar, nós repetimos.' · Reserva via WhatsApp">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://TU_USERNAME.github.io/royal-velvet-carwash/">
+    <meta property="og:image" content="https://TU_USERNAME.github.io/royal-velvet-carwash/preview.jpg">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="ROYAL VELVET CAR WASH | 09 Maio 2026">
+    <meta name="twitter:description" content="Lavagem Profissional · 200 MT / 300 MT · Reserva via WhatsApp">
+    <meta name="twitter:image" content="https://TU_USERNAME.github.io/royal-velvet-carwash/preview.jpg">
+    
+    <title>ROYAL VELVET CAR WASH | 09 Maio 2026</title>
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>💎</text></svg>">
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@300;400;500;600;700;800;900&family=Playfair+Display:ital,wght@0,700;0,900;1,600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --gold: #d4a853;
+            --gold-light: #f0cc6e;
+            --gold-dark: #9a7030;
+            --gold-glow: rgba(212, 168, 83, 0.5);
+            --bg: #030303;
+            --surface: rgba(18, 18, 18, 0.85);
+            --border-subtle: rgba(255, 255, 255, 0.04);
+            --border-gold: rgba(212, 168, 83, 0.3);
+            --text-dim: #888;
+            --text-mid: #bbb;
+            --text-bright: #fff;
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+        body {
+            background: var(--bg);
+            color: var(--text-bright);
+            font-family: 'Inter', sans-serif;
+            overflow-x: hidden;
+            cursor: crosshair;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        #mainCanvas {
+            position: fixed;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            z-index: 0;
+        }
+        .atmosphere {
+            position: fixed;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            pointer-events: none;
+            z-index: 1;
+            background:
+                radial-gradient(ellipse at 20% 30%, rgba(212,168,83,0.04) 0%, transparent 50%),
+                radial-gradient(ellipse at 75% 60%, rgba(212,168,83,0.03) 0%, transparent 50%),
+                radial-gradient(ellipse at 50% 90%, rgba(0,0,0,0.6) 0%, transparent 60%);
+        }
+        .poster-wrapper {
+            position: relative;
+            z-index: 2;
+            width: 100%;
+            max-width: 540px;
+            margin: 20px;
+            perspective: 1200px;
+        }
+        .poster {
+            position: relative;
+            background: var(--surface);
+            backdrop-filter: blur(40px) saturate(180%);
+            -webkit-backdrop-filter: blur(40px) saturate(180%);
+            border: 1px solid var(--border-subtle);
+            border-radius: 2px;
+            overflow: visible;
+            box-shadow:
+                0 80px 200px rgba(0,0,0,0.7),
+                0 0 120px rgba(212,168,83,0.06),
+                0 0 30px rgba(212,168,83,0.03),
+                inset 0 1px 0 rgba(255,255,255,0.02);
+        }
+        .poster::before {
+            content: '';
+            position: absolute;
+            left: 0; top: 8%; bottom: 8%;
+            width: 1px;
+            background: linear-gradient(180deg, transparent 0%, var(--gold) 30%, var(--gold-light) 50%, var(--gold) 70%, transparent 100%);
+            z-index: 3;
+            opacity: 0.6;
+        }
+        .poster::after {
+            content: '';
+            position: absolute;
+            top: 0; left: 5%; right: 5%;
+            height: 1px;
+            background: linear-gradient(90deg, transparent 0%, rgba(212,168,83,0.4) 20%, rgba(240,204,110,0.6) 50%, rgba(212,168,83,0.4) 80%, transparent 100%);
+            z-index: 3;
+        }
+        .content {
+            position: relative;
+            z-index: 2;
+            padding: 60px 40px 50px;
+            text-align: center;
+        }
+        .brand-block { margin-bottom: 35px; }
+        .brand-icon {
+            display: inline-block;
+            width: 50px; height: 50px;
+            border: 1px solid var(--border-gold);
+            border-radius: 50%;
+            margin-bottom: 20px;
+            position: relative;
+            background: rgba(212,168,83,0.03);
+        }
+        .brand-icon::after {
+            content: '✦';
+            position: absolute;
+            top: 50%; left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 18px;
+            color: var(--gold);
+            text-shadow: 0 0 20px var(--gold-glow);
+        }
+        .brand-name {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: clamp(3rem, 10vw, 4.5rem);
+            font-weight: 400;
+            letter-spacing: 14px;
+            line-height: 0.85;
+            color: #fff;
+            text-shadow: 0 0 80px rgba(255,255,255,0.1), 0 0 20px rgba(255,255,255,0.05);
+            margin-bottom: 4px;
+        }
+        .brand-sub {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: clamp(1.2rem, 4vw, 1.8rem);
+            letter-spacing: 16px;
+            color: #777;
+            font-weight: 400;
+            margin-bottom: 8px;
+        }
+        .brand-tagline {
+            font-size: 0.65rem;
+            font-weight: 500;
+            letter-spacing: 6px;
+            text-transform: uppercase;
+            color: #555;
+        }
+        .divider-elegant {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+            margin: 35px 0;
+        }
+        .divider-line {
+            width: 40px; height: 1px;
+            background: var(--border-gold);
+        }
+        .divider-diamond {
+            width: 6px; height: 6px;
+            background: var(--gold);
+            transform: rotate(45deg);
+            box-shadow: 0 0 12px var(--gold-glow);
+        }
+        .date-block {
+            margin: 30px 0 25px;
+            padding: 30px 0;
+            position: relative;
+            border-top: 1px solid rgba(255,255,255,0.04);
+            border-bottom: 1px solid rgba(255,255,255,0.04);
+        }
+        .date-day-number {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: clamp(7rem, 22vw, 11rem);
+            font-weight: 400;
+            line-height: 0.7;
+            background: linear-gradient(180deg, #fff 0%, var(--gold-light) 30%, var(--gold) 60%, var(--gold-dark) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            filter: drop-shadow(0 0 40px rgba(212,168,83,0.5)) drop-shadow(0 0 80px rgba(212,168,83,0.25));
+        }
+        .date-month-row {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: clamp(1.3rem, 4vw, 1.8rem);
+            letter-spacing: 14px;
+            color: #ccc;
+            margin: 8px 0 4px;
+        }
+        .date-time-row {
+            font-size: 0.7rem;
+            font-weight: 600;
+            letter-spacing: 6px;
+            color: var(--gold);
+            text-transform: uppercase;
+        }
+        .countdown-block {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 10px;
+            margin: 20px 0 30px;
+        }
+        .countdown-unit {
+            text-align: center;
+            min-width: 58px;
+            background: rgba(255,255,255,0.015);
+            border: 1px solid rgba(255,255,255,0.05);
+            border-radius: 3px;
+            padding: 12px 8px;
+            position: relative;
+        }
+        .countdown-value {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 2.2rem;
+            letter-spacing: 3px;
+            color: #fff;
+            line-height: 1;
+        }
+        .countdown-label-small {
+            font-size: 0.55rem;
+            font-weight: 500;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            color: #666;
+            margin-top: 5px;
+        }
+        .countdown-sep {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 1.5rem;
+            color: var(--gold);
+            opacity: 0.5;
+        }
+        .pricing-row {
+            display: flex;
+            justify-content: center;
+            gap: 16px;
+            margin-bottom: 24px;
+            flex-wrap: wrap;
+        }
+        .price-card-luxury {
+            background: rgba(22,22,22,0.8);
+            border: 1px solid rgba(255,255,255,0.05);
+            border-radius: 2px;
+            padding: 22px 20px 18px;
+            text-align: center;
+            min-width: 135px;
+            backdrop-filter: blur(20px);
+            position: relative;
+            overflow: hidden;
+            transition: all 0.5s cubic-bezier(0.25, 0.8, 0.25, 1.2);
+            cursor: default;
+        }
+        .price-card-luxury:hover {
+            border-color: var(--border-gold);
+            transform: translateY(-8px);
+            box-shadow: 0 30px 60px rgba(0,0,0,0.5), 0 0 40px rgba(212,168,83,0.1);
+            background: rgba(28,28,28,0.9);
+        }
+        .price-card-luxury .card-shine {
+            position: absolute;
+            top: -100%; left: -100%;
+            width: 80px; height: 200%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.02), transparent);
+            transform: rotate(25deg);
+            transition: left 0.8s ease;
+        }
+        .price-card-luxury:hover .card-shine { left: 150%; }
+        .price-label-lux {
+            font-size: 0.6rem;
+            font-weight: 600;
+            letter-spacing: 4px;
+            text-transform: uppercase;
+            color: #777;
+            margin-bottom: 12px;
+        }
+        .price-value-lux {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 3.2rem;
+            color: #fff;
+            line-height: 1;
+            letter-spacing: 2px;
+        }
+        .price-currency-lux {
+            font-size: 0.8rem;
+            color: var(--gold);
+            font-weight: 700;
+            letter-spacing: 3px;
+            display: block;
+        }
+        .services-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 7px 16px;
+            text-align: left;
+            margin-bottom: 18px;
+            padding: 0 8px;
+        }
+        .service-dot {
+            font-size: 0.68rem;
+            font-weight: 400;
+            color: #aaa;
+            letter-spacing: 0.4px;
+            padding-left: 18px;
+            position: relative;
+        }
+        .service-dot::before {
+            content: '';
+            position: absolute;
+            left: 0; top: 5px;
+            width: 6px; height: 6px;
+            background: var(--gold);
+            border-radius: 50%;
+            box-shadow: 0 0 8px var(--gold-glow);
+        }
+        .guarantee-luxury {
+            font-family: 'Playfair Display', serif;
+            font-size: 0.85rem;
+            font-style: italic;
+            color: var(--gold-light);
+            letter-spacing: 1.5px;
+            margin: 18px 0 22px;
+            text-shadow: 0 0 30px rgba(240,204,110,0.3);
+        }
+        .cta-luxury {
+            display: inline-block;
+            background: transparent;
+            border: 1px solid var(--gold);
+            color: var(--gold);
+            font-family: 'Inter', sans-serif;
+            font-size: 0.72rem;
+            font-weight: 700;
+            letter-spacing: 5px;
+            text-transform: uppercase;
+            padding: 16px 36px;
+            cursor: pointer;
+            text-decoration: none;
+            transition: all 0.6s cubic-bezier(0.25, 0.8, 0.25, 1);
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+            margin-bottom: 28px;
+        }
+        .cta-luxury::before {
+            content: '';
+            position: absolute;
+            top: 0; left: -100%;
+            width: 100%; height: 100%;
+            background: var(--gold);
+            transition: left 0.6s cubic-bezier(0.25, 0.8, 0.25, 1);
+            z-index: -1;
+        }
+        .cta-luxury:hover::before { left: 0; }
+        .cta-luxury:hover {
+            color: #000;
+            box-shadow: 0 0 60px var(--gold-glow), 0 0 120px rgba(212,168,83,0.3);
+            transform: translateY(-4px);
+            letter-spacing: 7px;
+        }
+        .cta-luxury:active { transform: scale(0.96); }
+        .info-footer-lux {
+            background: rgba(255,255,255,0.008);
+            border: 1px solid rgba(255,255,255,0.04);
+            padding: 16px 20px;
+        }
+        .info-loc {
+            font-size: 0.68rem;
+            font-weight: 400;
+            color: #bbb;
+            letter-spacing: 0.5px;
+            line-height: 1.7;
+            margin-bottom: 10px;
+        }
+        .info-phones-lux {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 1.2rem;
+            letter-spacing: 4px;
+            color: #ccc;
+        }
+        .info-phones-lux a {
+            color: #ccc;
+            text-decoration: none;
+            transition: all 0.3s;
+        }
+        .info-phones-lux a:hover {
+            color: var(--gold-light);
+            text-shadow: 0 0 20px var(--gold-glow);
+        }
+        .phone-sep { color: #444; margin: 0 10px; }
+        @media (max-width: 440px) {
+            .content { padding: 45px 24px 35px; }
+            .brand-name { letter-spacing: 8px; }
+            .brand-sub { letter-spacing: 10px; }
+            .date-day-number { font-size: 5.5rem; }
+            .services-row { grid-template-columns: 1fr; gap: 5px; }
+            .pricing-row { gap: 10px; }
+            .price-card-luxury { padding: 16px 14px; min-width: 115px; }
+            .price-value-lux { font-size: 2.4rem; }
+            .countdown-value { font-size: 1.6rem; }
+            .countdown-unit { min-width: 48px; padding: 10px 5px; }
+            .poster::before { left: 0; top: 5%; bottom: 5%; }
+        }
+    </style>
+</head>
+<body>
+
+    <canvas id="mainCanvas"></canvas>
+    <div class="atmosphere"></div>
+
+    <div class="poster-wrapper">
+        <div class="poster">
+            <div class="content">
+                <div class="brand-block">
+                    <div class="brand-icon"></div>
+                    <div class="brand-name">ROYAL VELVET</div>
+                    <div class="brand-sub">CAR WASH</div>
+                    <p class="brand-tagline">Lavagem Profissional · Rápida · Sem Risco</p>
+                </div>
+                <div class="divider-elegant">
+                    <span class="divider-line"></span>
+                    <span class="divider-diamond"></span>
+                    <span class="divider-line"></span>
+                </div>
+                <div class="date-block">
+                    <div class="date-day-number">09</div>
+                    <div class="date-month-row">MAIO 2026</div>
+                    <div class="date-time-row">A partir das 07:00</div>
+                </div>
+                <div class="countdown-block">
+                    <div class="countdown-unit"><div class="countdown-value" id="cd-days">--</div><div class="countdown-label-small">Dias</div></div>
+                    <span class="countdown-sep">:</span>
+                    <div class="countdown-unit"><div class="countdown-value" id="cd-hours">--</div><div class="countdown-label-small">Horas</div></div>
+                    <span class="countdown-sep">:</span>
+                    <div class="countdown-unit"><div class="countdown-value" id="cd-mins">--</div><div class="countdown-label-small">Min</div></div>
+                    <span class="countdown-sep">:</span>
+                    <div class="countdown-unit"><div class="countdown-value" id="cd-secs">--</div><div class="countdown-label-small">Seg</div></div>
+                </div>
+                <div class="pricing-row">
+                    <div class="price-card-luxury"><div class="card-shine"></div><div class="price-label-lux">Pequeno Porte</div><div class="price-value-lux">200</div><span class="price-currency-lux">MT</span></div>
+                    <div class="price-card-luxury"><div class="card-shine"></div><div class="price-label-lux">Grande Porte</div><div class="price-value-lux">300</div><span class="price-currency-lux">MT</span></div>
+                </div>
+                <div class="services-row">
+                    <span class="service-dot">Lavagem exterior completa</span>
+                    <span class="service-dot">Limpeza interior profunda</span>
+                    <span class="service-dot">Todos os cantos e recantos</span>
+                    <span class="service-dot">Elimina pó e mau cheiro</span>
+                    <span class="service-dot">Secagem e brilho final</span>
+                    <span class="service-dot">Produtos não agridem pintura</span>
+                </div>
+                <p class="guarantee-luxury">"Se não brilhar, nós repetimos."</p>
+                <a href="https://wa.me/258845878830?text=Ol%C3%A1%2C%20quero%20reservar%20uma%20lavagem%20no%20evento%20ROYAL%20VELVET%20CAR%20WASH%20do%20dia%2009%20de%20Maio.%20Podem%20dar-me%20mais%20informa%C3%A7%C3%B5es%3F" class="cta-luxury" target="_blank" rel="noopener">💬 Reservar via WhatsApp</a>
+                <div class="info-footer-lux">
+                    <p class="info-loc">📍 Escola São Vicente de Paulo — Av. Vladimir Lenine</p>
+                    <p class="info-phones-lux">
+                        <a href="https://wa.me/258845878830?text=Ol%C3%A1%21+Vi+o+cartaz+do+ROYAL+VELVET+CAR+WASH.+Pode+dar-me+informa%C3%A7%C3%B5es%3F" target="_blank" rel="noopener">84 587 8830</a>
+                        <span class="phone-sep">|</span>
+                        <a href="https://wa.me/258852939026?text=Ol%C3%A1%21+Vi+o+cartaz+do+ROYAL+VELVET+CAR+WASH.+Pode+dar-me+informa%C3%A7%C3%B5es%3F" target="_blank" rel="noopener">85 293 9026</a>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script>
+        const canvas = document.getElementById('mainCanvas');
+        const ctx = canvas.getContext('2d');
+        let W, H, time = 0, mouseX = 0, mouseY = 0, targetMouseX = 0, targetMouseY = 0;
+        function resize() { W = canvas.width = window.innerWidth; H = canvas.height = window.innerHeight; }
+        resize();
+        window.addEventListener('resize', resize);
+        document.addEventListener('mousemove', e => { targetMouseX = e.clientX; targetMouseY = e.clientY; });
+        document.addEventListener('touchmove', e => { targetMouseX = e.touches[0].clientX; targetMouseY = e.touches[0].clientY; }, { passive: true });
+
+        const particles = [];
+        class WaterParticle {
+            constructor() { this.reset(true); }
+            reset(randomY = false) {
+                this.x = Math.random() * W;
+                this.y = randomY ? Math.random() * H : H + 30;
+                this.size = Math.random() * 2.5 + 0.5;
+                this.speedY = -(Math.random() * 0.7 + 0.1);
+                this.speedX = (Math.random() - 0.5) * 0.4;
+                this.opacity = Math.random() * 0.5 + 0.15;
+                this.isGold = Math.random() < 0.1;
+                this.wobble = Math.random() * Math.PI * 2;
+                this.wobbleSpeed = Math.random() * 0.015 + 0.005;
+            }
+            update() {
+                this.y += this.speedY;
+                this.x += this.speedX + Math.sin(this.wobble) * 0.25;
+                this.wobble += this.wobbleSpeed;
+                const dx = mouseX - this.x, dy = mouseY - this.y;
+                if (Math.sqrt(dx*dx+dy*dy) < 250) { this.x += dx*0.001; this.y += dy*0.001; }
+                if (this.y < -30) this.reset();
+            }
+            draw(ctx) {
+                ctx.save(); ctx.globalAlpha = this.opacity;
+                if (this.isGold) {
+                    const grad = ctx.createRadialGradient(this.x, this.y, 0, this.x, this.y, this.size*4);
+                    grad.addColorStop(0, 'rgba(240,204,110,0.8)');
+                    grad.addColorStop(0.4, 'rgba(212,168,83,0.3)');
+                    grad.addColorStop(1, 'rgba(212,168,83,0)');
+                    ctx.fillStyle = grad;
+                    ctx.beginPath(); ctx.arc(this.x, this.y, this.size*4, 0, Math.PI*2); ctx.fill();
+                }
+                ctx.fillStyle = this.isGold ? '#f0cc6e' : '#ffffff';
+                ctx.beginPath(); ctx.arc(this.x, this.y, this.size, 0, Math.PI*2); ctx.fill();
+                ctx.restore();
+            }
+        }
+        for (let i=0; i<100; i++) particles.push(new WaterParticle());
+
+        const car = {
+            x: -600, y: 0, baseY: 0, speed: 1.8, width: 380, height: 90, direction: 1, pauseTimer: 0, moving: true,
+            respawn() {
+                this.direction = Math.random() > 0.5 ? 1 : -1;
+                this.x = this.direction === 1 ? -this.width-100 : W+this.width+100;
+                this.baseY = H*0.55 + (Math.random()-0.5)*100;
+                this.y = this.baseY;
+                this.speed = 1.5 + Math.random()*2;
+                this.pauseTimer = 60 + Math.random()*150;
+                this.moving = false;
+            }
+        };
+        car.baseY = H*0.55; car.y = car.baseY; car.x = -car.width-100; car.pauseTimer = 80;
+
+        function drawWheel(ctx, wx, wy, r) {
+            ctx.fillStyle = '#0a0a0a'; ctx.beginPath(); ctx.arc(wx, wy, r, 0, Math.PI*2); ctx.fill();
+            ctx.fillStyle = '#1a1a1a'; ctx.beginPath(); ctx.arc(wx, wy, r*0.65, 0, Math.PI*2); ctx.fill();
+            ctx.fillStyle = '#333'; ctx.beginPath(); ctx.arc(wx, wy, r*0.35, 0, Math.PI*2); ctx.fill();
+            ctx.strokeStyle = '#2a2a2a'; ctx.lineWidth = 1;
+            for (let i=0; i<5; i++) {
+                const a = (i/5)*Math.PI*2 + time*0.003;
+                ctx.beginPath(); ctx.moveTo(wx, wy); ctx.lineTo(wx+Math.cos(a)*r*0.6, wy+Math.sin(a)*r*0.6); ctx.stroke();
+            }
+            ctx.fillStyle = 'rgba(255,255,255,0.08)'; ctx.beginPath(); ctx.arc(wx-r*0.15, wy-r*0.15, r*0.2, 0, Math.PI*2); ctx.fill();
+        }
+
+        function drawCarBody(ctx, cx, cy, s=1) {
+            ctx.save(); ctx.translate(cx, cy); ctx.scale(s, s);
+            ctx.fillStyle = 'rgba(0,0,0,0.5)'; ctx.beginPath(); ctx.ellipse(0, 20, 170, 18, 0, 0, Math.PI*2); ctx.fill();
+            const bg = ctx.createLinearGradient(0, -55, 0, 20);
+            bg.addColorStop(0,'#3a3a3a'); bg.addColorStop(0.3,'#1a1a1a'); bg.addColorStop(0.5,'#0d0d0d'); bg.addColorStop(0.7,'#1a1a1a'); bg.addColorStop(1,'#2a2a2a');
+            ctx.fillStyle = bg;
+            ctx.beginPath();
+            ctx.moveTo(-180,10); ctx.lineTo(-175,-15); ctx.quadraticCurveTo(-160,-45,-120,-55); ctx.lineTo(-80,-58);
+            ctx.quadraticCurveTo(-30,-60,20,-58); ctx.lineTo(60,-52); ctx.lineTo(100,-42); ctx.quadraticCurveTo(140,-30,160,-10);
+            ctx.lineTo(175,8); ctx.lineTo(178,10); ctx.lineTo(-180,10); ctx.closePath(); ctx.fill();
+            const gg = ctx.createLinearGradient(0,-62,0,-40); gg.addColorStop(0,'#111'); gg.addColorStop(1,'#333');
+            ctx.fillStyle = gg;
+            ctx.beginPath(); ctx.moveTo(-60,-52); ctx.quadraticCurveTo(-20,-60,30,-57); ctx.lineTo(60,-50); ctx.quadraticCurveTo(20,-50,-40,-45); ctx.closePath(); ctx.fill();
+            ctx.strokeStyle = 'rgba(255,255,255,0.15)'; ctx.lineWidth = 1.5;
+            ctx.beginPath(); ctx.moveTo(-160,-20); ctx.quadraticCurveTo(-100,-42,0,-42); ctx.quadraticCurveTo(80,-38,140,-18); ctx.stroke();
+            ctx.strokeStyle = 'rgba(255,255,255,0.08)'; ctx.lineWidth = 4;
+            ctx.beginPath(); ctx.moveTo(-140,-30); ctx.quadraticCurveTo(-60,-48,40,-46); ctx.quadraticCurveTo(100,-40,140,-25); ctx.stroke();
+            const hg = ctx.createRadialGradient(170,-2,2,170,-2,15);
+            hg.addColorStop(0,'rgba(240,230,200,0.9)'); hg.addColorStop(0.3,'rgba(240,204,110,0.6)'); hg.addColorStop(1,'rgba(212,168,83,0)');
+            ctx.fillStyle = hg; ctx.beginPath(); ctx.arc(170,-2,15,0,Math.PI*2); ctx.fill();
+            ctx.fillStyle = 'rgba(180,30,30,0.7)'; ctx.beginPath(); ctx.arc(-172,-2,8,0,Math.PI*2); ctx.fill();
+            const tg = ctx.createRadialGradient(-172,-2,3,-172,-2,12);
+            tg.addColorStop(0,'rgba(220,40,40,0.6)'); tg.addColorStop(1,'rgba(180,30,30,0)');
+            ctx.fillStyle = tg; ctx.beginPath(); ctx.arc(-172,-2,12,0,Math.PI*2); ctx.fill();
+            drawWheel(ctx, -120, 8, 22); drawWheel(ctx, -20, 8, 22); drawWheel(ctx, 60, 6, 20); drawWheel(ctx, 130, 6, 20);
+            ctx.restore();
+        }
+
+        function drawCarReflectionOnGround(ctx, cx, cy, s) {
+            ctx.save(); ctx.globalAlpha = 0.06; ctx.translate(cx, cy+30); ctx.scale(1, -0.35); ctx.scale(s, s);
+            ctx.fillStyle = '#fff';
+            ctx.beginPath(); ctx.moveTo(-180,10); ctx.lineTo(-175,-15); ctx.quadraticCurveTo(-160,-45,-120,-55); ctx.lineTo(-80,-58);
+            ctx.quadraticCurveTo(-30,-60,20,-58); ctx.lineTo(60,-52); ctx.lineTo(100,-42); ctx.quadraticCurveTo(140,-30,160,-10);
+            ctx.lineTo(175,8); ctx.lineTo(178,10); ctx.lineTo(-180,10); ctx.closePath(); ctx.fill();
+            ctx.restore();
+        }
+
+        function drawLightTrail(ctx, cx, cy, dir) {
+            ctx.save(); ctx.globalCompositeOperation = 'screen';
+            const tx = cx - dir*200;
+            const tg = ctx.createLinearGradient(cx, cy, tx, cy);
+            tg.addColorStop(0,'rgba(212,168,83,0.12)'); tg.addColorStop(1,'rgba(212,168,83,0)');
+            ctx.fillStyle = tg; ctx.beginPath(); ctx.moveTo(cx,cy-12); ctx.lineTo(tx,cy-6); ctx.lineTo(tx,cy+6); ctx.lineTo(cx,cy+12); ctx.closePath(); ctx.fill();
+            const bg = ctx.createLinearGradient(cx, cy, cx+dir*300, cy);
+            bg.addColorStop(0,'rgba(240,204,110,0.08)'); bg.addColorStop(1,'rgba(240,204,110,0)');
+            ctx.fillStyle = bg; ctx.beginPath(); ctx.moveTo(cx+dir*160,cy-4); ctx.lineTo(cx+dir*300,cy-0.5); ctx.lineTo(cx+dir*300,cy+0.5); ctx.lineTo(cx+dir*160,cy+4); ctx.closePath(); ctx.fill();
+            ctx.restore();
+        }
+
+        function drawLightBeams(ctx, t) {
+            ctx.save(); ctx.globalCompositeOperation = 'screen';
+            for (let i=0; i<3; i++) {
+                const bx = W*(0.25+i*0.25) + Math.sin(t*0.0003+i)*W*0.12;
+                const by = H*0.15, bw = 180+Math.sin(t*0.0005+i)*60, bh = H*0.7;
+                const g = ctx.createLinearGradient(bx, by, bx, by+bh);
+                g.addColorStop(0,'rgba(212,168,83,0.04)'); g.addColorStop(0.35,'rgba(212,168,83,0.015)'); g.addColorStop(1,'rgba(0,0,0,0)');
+                ctx.fillStyle = g;
+                ctx.beginPath(); ctx.moveTo(bx-bw/2,by); ctx.lineTo(bx+bw/2,by); ctx.lineTo(bx+bw*0.6,by+bh); ctx.lineTo(bx-bw*0.6,by+bh); ctx.closePath(); ctx.fill();
+            }
+            ctx.restore();
+        }
+
+        function drawCenterGlow(ctx, t) {
+            ctx.save(); ctx.globalCompositeOperation = 'screen';
+            const cx = W*0.25, cy = H*0.55, p = 1+Math.sin(t*0.0006)*0.15;
+            const g = ctx.createRadialGradient(cx, cy, 0, cx, cy, 300*p);
+            g.addColorStop(0,'rgba(212,168,83,0.05)'); g.addColorStop(0.5,'rgba(212,168,83,0.02)'); g.addColorStop(1,'rgba(0,0,0,0)');
+            ctx.fillStyle = g; ctx.beginPath(); ctx.arc(cx, cy, 300*p, 0, Math.PI*2); ctx.fill();
+            ctx.restore();
+        }
+
+        function animate(timestamp) {
+            time = timestamp;
+            mouseX += (targetMouseX-mouseX)*0.05; mouseY += (targetMouseY-mouseY)*0.05;
+            ctx.clearRect(0,0,W,H); ctx.fillStyle = '#030303'; ctx.fillRect(0,0,W,H);
+            drawLightBeams(ctx, time); drawCenterGlow(ctx, time);
+            if (!car.moving) { car.pauseTimer--; if (car.pauseTimer<=0) car.moving=true; }
+            else {
+                car.x += car.speed*car.direction;
+                car.y = car.baseY + Math.sin(time*0.001+car.x*0.01)*8;
+                if ((car.direction===1 && car.x>W+car.width+100) || (car.direction===-1 && car.x<-car.width-100)) car.respawn();
+                if (Math.random()<0.001) { car.moving=false; car.pauseTimer=40+Math.random()*100; }
+            }
+            if (car.moving) drawLightTrail(ctx, car.x, car.y, car.direction);
+            drawCarReflectionOnGround(ctx, car.x, car.y, 1);
+            drawCarBody(ctx, car.x, car.y, 1);
+            particles.forEach(p=>{p.update();p.draw(ctx);});
+            if (car.moving && Math.random()<0.5) {
+                const p = new WaterParticle();
+                p.x=car.x+(Math.random()-0.5)*200; p.y=car.y+Math.random()*20;
+                p.speedY=-(Math.random()*1.5+0.3); p.speedX=car.direction*(Math.random()*1.5+0.5);
+                p.size=Math.random()*3+0.5; p.opacity=Math.random()*0.6+0.2; p.isGold=Math.random()<0.3;
+                particles.push(p); if (particles.length>150) particles.shift();
+            }
+            requestAnimationFrame(animate);
+        }
+        requestAnimationFrame(animate);
+
+        const eventDate = new Date('2026-05-09T07:00:00+02:00');
+        function updateCountdown() {
+            const diff = eventDate - new Date();
+            if (diff<=0) { ['cd-days','cd-hours','cd-mins','cd-secs'].forEach(id=>document.getElementById(id).textContent='00'); return; }
+            document.getElementById('cd-days').textContent = String(Math.floor(diff/(1000*60*60*24))).padStart(2,'0');
+            document.getElementById('cd-hours').textContent = String(Math.floor((diff%(1000*60*60*24))/(1000*60*60))).padStart(2,'0');
+            document.getElementById('cd-mins').textContent = String(Math.floor((diff%(1000*60*60))/(1000*60))).padStart(2,'0');
+            document.getElementById('cd-secs').textContent = String(Math.floor((diff%(1000*60))/1000)).padStart(2,'0');
+        }
+        updateCountdown(); setInterval(updateCountdown,1000);
+
+        gsap.set(['.brand-block','.divider-elegant','.date-block','.countdown-block','.pricing-row','.services-row','.guarantee-luxury','.cta-luxury','.info-footer-lux'],{opacity:0,y:50});
+        gsap.set('.date-day-number',{scale:2,opacity:0}); gsap.set('.price-card-luxury',{y:40,opacity:0}); gsap.set('.countdown-unit',{scale:0.8,opacity:0});
+        const tl = gsap.timeline({defaults:{ease:"power4.out"}});
+        tl.to('.brand-block',{opacity:1,y:0,duration:0.9})
+          .to('.divider-elegant',{opacity:1,y:0,duration:0.6},"-=0.5")
+          .to('.date-block',{opacity:1,y:0,duration:0.8},"-=0.3")
+          .to('.date-day-number',{scale:1,opacity:1,duration:1.2,ease:"elastic.out(1,0.5)"},"-=0.5")
+          .to('.countdown-block',{opacity:1,y:0,duration:0.6},"-=0.4")
+          .to('.countdown-unit',{scale:1,opacity:1,duration:0.45,stagger:0.06},"-=0.3")
+          .to('.price-card-luxury',{opacity:1,y:0,duration:0.55,stagger:0.12},"-=0.2")
+          .to('.services-row',{opacity:1,y:0,duration:0.5},"-=0.3")
+          .to('.guarantee-luxury',{opacity:1,y:0,duration:0.5},"-=0.2")
+          .to('.cta-luxury',{opacity:1,y:0,duration:0.5},"-=0.2")
+          .to('.info-footer-lux',{opacity:1,y:0,duration:0.5},"-=0.2");
+    </script>
+</body>
+</html>
